@@ -19,15 +19,10 @@
         width: 48px;
         height: 48px;
     }
-
-    h3 {
-        margin: 16px 0px 8px;
-    }
 }
 
 :root {
-    --main-color: royalblue;
-    --secondary-color: gold;
+    --main-color: #4169e1;
     --bg-color: lightgrey;
     --box-shadow: 0 10px 10px -10px #777;
 }
@@ -45,8 +40,9 @@ header {
     display: grid;
     grid-template-rows: 1fr 2fr;
     gap: 2em;
-    box-shadow: var(--box-shadow);
     padding: 8px 0;
+    box-shadow: var(--box-shadow);
+    z-index: 1;
 
     & span {
         font-weight: bold;
@@ -162,22 +158,36 @@ main {
     grid-column: 2;
     grid-row: 2;
     background-color: var(--bg-color);
-    padding-left: 16px;
 
-
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 1em;
+    }
 
     .cards-container {
-        height: 90%;
-        width: 90%;
         display: grid;
         gap: 24px;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
 
+
         & .card {
+            padding: 1.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             background-color: white;
             border-radius: 8px;
             box-shadow: var(--box-shadow);
+            border-left: 0.5em solid #DEA102;
+
+            & .svg-container {
+                display: flex;
+                justify-content: end;
+                gap: 1em;
+            }
         }
     }
 }
@@ -185,6 +195,17 @@ main {
 aside {
     background-color: var(--bg-color);
     grid-row: 2;
+
+    .aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 22px;
+    }
+
+    & h3 {
+        margin-bottom: 0.5em;
+    }
 
     & ul {
         background-color: white;
@@ -201,7 +222,6 @@ aside {
     & .news-container {
 
         & li {
-            height: 100px;
             overflow: hidden;
         }
 

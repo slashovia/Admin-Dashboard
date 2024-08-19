@@ -1,11 +1,36 @@
 @import url(/reset.css);
 
+@layer utilities {
+
+    svg {
+        width: 24px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: inherit;
+    }
+
+    img {
+        object-fit: cover;
+        width: 48px;
+        height: 48px;
+    }
+
+    h3 {
+        margin: 16px 0px 8px;
+    }
+}
+
 :root {
     --main-color: royalblue;
     --secondary-color: gold;
     --bg-color: lightgrey;
+    --box-shadow: 0 10px 10px -10px #777;
 }
-
 
 body {
     width: 100vw;
@@ -20,6 +45,8 @@ header {
     display: grid;
     grid-template-rows: 1fr 2fr;
     gap: 2em;
+    box-shadow: var(--box-shadow);
+    padding: 8px 0;
 
     & span {
         font-weight: bold;
@@ -51,12 +78,6 @@ header {
             align-items: center;
             gap: 1em;
 
-            & img {
-                object-fit: cover;
-                width: 48px;
-                height: 48px;
-            }
-
             & span {
                 align-self: center;
                 font-size: 1.25em;
@@ -68,12 +89,14 @@ header {
         display: grid;
         grid-template-columns: 1fr 1fr;
         height: 64px;
+        margin-left: 32px;
 
         & .profile {
             display: flex;
+            align-items: center;
 
             & img {
-                width: 64px;
+                width: 90px;
                 object-fit: cover;
             }
 
@@ -139,7 +162,24 @@ main {
     grid-column: 2;
     grid-row: 2;
     background-color: var(--bg-color);
+    padding-left: 16px;
 
+
+
+    .cards-container {
+        height: 90%;
+        width: 90%;
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        & .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+    }
 }
 
 aside {
@@ -148,17 +188,55 @@ aside {
 
     & ul {
         background-color: white;
+        padding: 24px;
+        border-radius: 8px;
     }
-}
 
-svg {
-    width: 24px;
-}
+    .news-container,
+    .trending {
+        width: 300px;
+        box-shadow: var(--box-shadow)
+    }
 
-a {
-    text-decoration: none;
-}
+    & .news-container {
 
-a:visited {
-    color: inherit;
+        & li {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        & hr {
+            margin: 8px auto;
+        }
+
+        & p {
+            font-size: 0.75em;
+            color: gray;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            white-space: normal;
+        }
+    }
+
+    & .trending {
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        & li {
+            display: flex;
+            gap: 16px;
+        }
+
+        & span {
+            display: block;
+            font-size: 0.75em;
+            color: gray;
+        }
+    }
 }
